@@ -28,14 +28,47 @@
 					<h1><b>Portfolio</b></h1>
 					<div class="box style3">
 						<span class="image" style="border: 2px solid #b6ff38;">
+							<a href="https://store.steampowered.com/app/4420390/AstroFrame/">
+								<img src="images/astroframe.jpg" alt="" />
+						</a></span>
+						<div class="content">
+							<h3><a href="https://store.steampowered.com/app/4420390/AstroFrame/">AstroFrame*</a></h3>
+							<p>AstroFrame is a 2D roguelike built in Godot around ship building, combat, and exploration. Currently in production as a senior capstone project, with early access slated for Summer 2026. As design lead, I architected spreadsheet-driven data pipelines to manage game state and balance, keeping the full system legible and iterable without touching engine code. As narrative lead, I wrote the world's history from the ground up (faction lore, characters, and the stories that give the universe texture). I've also worked on the roguelike side, designing the randomization systems that keep runs feeling fresh. On the horizon: an endless mode and a full narrative campaign. <i>*ongoing project</i></p>
+							<div class="tags">
+								<span class="tag narrative">Narrative</span>
+								<span class="tag design">Design</span>
+								<span class="tag pcg">PCG</span>
+								<span class="tag game">Steam release upcoming</span>
+								<span class="tag">Godot</span>
+							</div>
+						</div>
+					</div>
+					<div class="box style3">
+						<span class="image" style="border: 2px solid #b6ff38;">
+							<a href="https://store.steampowered.com/app/4420390/AstroFrame/">
+								<img src="images/mproot.png" alt="" />
+						</a></span>
+						<div class="content">
+							<h3><a href="https://store.steampowered.com/app/4420390/AstroFrame/">Mind Palace: Running Out of Time</a></h3>
+							<p>A game jam project tackling one of the harder problems in procedural generation: the mystery. Inspired by the failures of real-world criminal justice, where innocence and guilt aren't always what determine a verdict, the game casts the player as a lawyer who constructs a case from whatever evidence they find. There's no fixed truth. Characters are generated with interests, jobs, and relationships, then assigned roles (victim, suspect, defendant) that shape what evidence exists to be discovered. A job might place someone at a scene; a relationship might become a motive. Despite the difficulty in crafting a procedural mystery, I count the player's agency as one of our design wins; the truth is yours to make.</p>
+							<div class="tags">
+								<span class="tag narrative">Narrative</span>
+								<span class="tag design">Design</span>
+								<span class="tag pcg">PCG</span>
+								<span class="tag game">Game jam</span>
+								<span class="tag">Javascript</span>
+								<span class="tag">HTML</span>
+							</div>
+						</div>
+					</div>
+					<div class="box style3">
+						<span class="image" style="border: 2px solid #b6ff38;">
 							<a href="https://corvuscorae.github.io/guy_generator/">
 								<img src="images/guy_gen.png" alt="" />
 						</a></span>
 						<div class="content">
-							<p>PVG</p>
 							<h3><a href="https://corvuscorae.github.io/guy_generator/">Guy Generator*</a></h3>
-							<p>A grammars system built around character traits. Uses flavor filler to differentiate similar statements 
-								by speaker personality. <i>*ongoing project</i></p>
+							<p>A grammar-based text generation system built around character personality. The goal was to push beyond generic procedural dialogue and make speakers feel genuinely distinct. Any character's voice is driven by personality variables that shape what they say and how they say it. Flavor filler and trait-weighted phrasing mean two characters can express the same idea in completely different ways. Designed with reusability in mind: the system is built as a tool, making it easy to plug in new character types, quirk sets, and personality levels. <i>*ongoing project</i></p>
 							<div class="tags">
 								<span class="tag narrative">Narrative</span>
 								<span class="tag pcg">PCG</span>
@@ -51,7 +84,7 @@
 						</a></span>
 						<div class="content">
 							<h3><a href="https://github.com/corvuscorae/story-dungeon">Story Dungeon*</a></h3>
-							<p>An exploration of unordered narrative. Combines random dungeon generation with random story beat placement, assigning objectives procedurally. <i>*ongoing project</i></p>
+							<p>An experiment in unordered narrative. What happens when a player is dropped into the middle of a story, with no guaranteed beginning? Story Dungeon pairs random dungeon generation with procedural story beat placement, using dictionaries to map passages to investigatable threads so the world always feels like there's more to uncover. The challenge was making a randomly ordered story still feel like it had mystery and momentum. This is a prototype, but the core question driving it is one worth exploring further: can a story feel cohesive even when you can't predict where it starts? <i>*ongoing project</i></p>
 							<div class="tags">
 								<span class="tag narrative">Narrative</span>
 								<span class="tag pcg">PCG</span>
@@ -67,9 +100,7 @@
 						</a></span>
 						<div class="content">
 							<h3><a href="https://corvuscorae.github.io/SketchTilerWFC/">SketchTiler</a></h3>
-							<p>A sketch-to-tilemap ideation tool, powered by Wave Function Collapse. 
-								I worked on the translation from sketch data to tile data, and I reworked our WFC to a hierarchical approach, 
-								vastly improving processing times.</p>
+							<p>A level ideation tool designed to lower the barrier to entry for tile-based level design. Users sketch a rough layout, and the tool translates that sketch into a full tilemap using Wave Function Collapse. I handled the translation layer from sketch data to tile data, and redesigned the WFC algorithm using a hierarchical approach (bringing generation time down from around 10 seconds to under 1). The goal was to make the ideation phase faster and more intuitive, especially for designers who aren't already fluent in tile-based level design.</p>
 							<div class="tags">
 								<span class="tag pcg">PCG</span>
 								<span class="tag research">Research</span>
@@ -85,8 +116,7 @@
 						</a></span>
 						<div class="content">
 							<h3><a href="https://llwatkin.github.io/final-project/">REAL World</a></h3>
-							<p>An interactive world simulator. Lore system models faction relationships, taking into account generated histories,
-								resources/economy, and opposing political systems.</p>
+							<p>A procedural world simulator built around the idea that history should make sense. Countries are generated with randomized resources and cultural values, then mapped to political ideologies through a value system. From there, relationships and histories are derived logically. Politically opposed nations become rivals; citizens' concerns reflect the realities of their resources and relationships. The result is a world that feels like it has a logical past and present. I led the lore system and the logic driving faction relationships and generated histories.</p>
 							<div class="tags">
 								<span class="tag pcg">PCG</span>
 								<span class="tag narrative">Narrative</span>
@@ -101,7 +131,7 @@
 						</a></span>
 						<div class="content">
 							<h3><a href="https://corvuscorae.itch.io/beat-galactic/">Beat Galactic</a></h3>
-							<p>An audio-focused project that procedurally groups individual loops to form a complete song.</p>
+							<p>An audio experiment, made mostly for the joy of it. Beat Galactic procedurally assembles individual loops into a complete song, layering, sequencing, and grouping them on the fly. It got a little weird, honestly, but that was kind of the point. It pushed me to think seriously about procedural audio design and what it means for music to feel intentional when it's generated.</p>
 							<div class="tags">
 								<span class="tag pcg">PCG</span>
 								<span class="tag">Audio</span>
@@ -117,7 +147,7 @@
 						</a></span>
 						<div class="content">
 							<h3><a href="https://corvuscorae.itch.io/plums">plums from the tree</a></h3>
-							<p>A tiny text-based game. Prose-forward.</p>
+							<p>A short, prose-forward text game and a pure writing exercise. No elaborate systems, just careful attention to language, pacing, and the feeling a small interactive story can leave behind. Written about the sense of home and its propensity to haunt you as you grow older.</p>
 							<div class="tags">
 								<span class="tag narrative">Writing</span>
 								<span class="tag narrative">Narrative</span>
@@ -138,7 +168,7 @@
 					<div class="col-10">
 						<header>
 							<h1><strong>Raven Ruiz</strong></h1>
-							<h3><b><a href="mailto:corvuscorae@gmail.com">corvuscorae@gmail.com</a></b></h3>
+							<h3><b><a href="mailto:ravecruzruiz@gmail.com">ravecruzruiz@gmail.com</a></b></h3>
 							<ul class="social">
 								<li><a href="https://www.linkedin.com/in/ravenlcruz/" class="fa-brands fa-linkedin"></a></li>
 								<li><a href="https://github.com/corvuscorae" class="fa-brands fa-github"></a></li>
@@ -149,7 +179,7 @@
 						<p>
 							I'm a writer, a programmer, and a game designer. 
 							I'm interested in narrative design and systems, game writing, procedural generation, and the intersection of all three!
-							Currently a senior in UCSC's Computer Science: Game Design program.
+							A proud recent grad from UCSC's Computer Science: Game Design program.
 						</p>
 					</div>
 				</div>

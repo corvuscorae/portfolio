@@ -2522,3 +2522,19 @@ input, select, textarea {
     padding: 0.25em 0.75em;
     font-size: 0.85em;
 }
+
+.tag.design {
+    background-color: #00a2ff1a;
+    border: 1px solid #008cff;
+    border-radius: 4px;
+    padding: 0.25em 0.75em;
+    font-size: 0.85em;
+}
+
+.tag.game {
+    background-color: #33ff001a;
+    border: 1px solid #00ff62;
+    border-radius: 4px;
+    padding: 0.25em 0.75em;
+    font-size: 0.85em;
+}
