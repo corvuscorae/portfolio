@@ -1,214 +1,428 @@
 <!DOCTYPE HTML>
-<!--
-	Miniport by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="en">
 	<head>
-		<title>Raven Ruiz Portfolio</title>
+		<title>Raven Cruz | Games, Creative Code, and Digital Art</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Portfolio of Raven Cruz, a game developer working across procedural generation, interactive storytelling, creative coding, and digital art." />
+		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+		<link rel="stylesheet" href="assets/css/portfolio.css" />
 	</head>
-	<body class="is-preload">
-
-		<!-- Nav -->
-			<nav id="nav">
-				<ul class="container">
-					Raven Ruiz
-					<li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#contact">About</a></li>
-				</ul>
+	<body>
+		<header class="site-header">
+			<a class="site-name" href="#top">Raven Cruz</a>
+			<button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+				<span>Menu</span>
+			</button>
+			<nav id="site-nav" aria-label="Primary navigation">
+				<a href="#top">⬆️</a>
+				<a href="#work">Work</a>
+				<a href="#lab">Lab</a>
+				<a href="#about">About</a>
+				<a class="resume-link" href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
 			</nav>
-		
-		<!-- Portfolio -->
-			<article id="portfolio" class="wrapper style3">
-				<div class="container">
-					<h1><b>Portfolio</b></h1>
-					<div class="box style3">
-						<span class="image" style="border: 2px solid #b6ff38;">
-							<a href="https://store.steampowered.com/app/4420390/AstroFrame/">
-								<img src="images/astroframe.jpg" alt="" />
-						</a></span>
-						<div class="content">
-							<h3><a href="https://store.steampowered.com/app/4420390/AstroFrame/">AstroFrame*</a></h3>
-							<p>AstroFrame is a 2D roguelike built in Godot around ship building, combat, and exploration. Currently in production as a senior capstone project, with early access slated for Summer 2026. As design lead, I architected spreadsheet-driven data pipelines to manage game state and balance, keeping the full system legible and iterable without touching engine code. As narrative lead, I wrote the world's history from the ground up (faction lore, characters, and the stories that give the universe texture). I've also worked on the roguelike side, designing the randomization systems that keep runs feeling fresh. On the horizon: an endless mode and a full narrative campaign. <i>*ongoing project</i></p>
-							<div class="tags">
-								<span class="tag narrative">Narrative</span>
-								<span class="tag design">Design</span>
-								<span class="tag pcg">PCG</span>
-								<span class="tag game">Steam release upcoming</span>
-								<span class="tag">Godot</span>
-							</div>
-						</div>
-					</div>
-					<div class="box style3">
-						<span class="image" style="border: 2px solid #b6ff38;">
-							<a href="https://corvuscorae.itch.io/mind-palace-running-out-of-time">
-								<img src="images/mproot.png" alt="" />
-						</a></span>
-						<div class="content">
-							<h3><a href="https://corvuscorae.itch.io/mind-palace-running-out-of-time">Mind Palace: Running Out of Time</a></h3>
-							<p>A game jam project tackling one of the harder problems in procedural generation: the mystery. Inspired by the failures of real-world criminal justice, where innocence and guilt aren't always what determine a verdict, the game casts the player as a lawyer who constructs a case from whatever evidence they find. There's no fixed truth. Characters are generated with interests, jobs, and relationships, then assigned roles (victim, suspect, defendant) that shape what evidence exists to be discovered. A job might place someone at a scene; a relationship might become a motive. Despite the difficulty in crafting a procedural mystery, I count the player's agency as one of our design wins; the truth is yours to make.</p>
-							<div class="tags">
-								<span class="tag narrative">Narrative</span>
-								<span class="tag design">Design</span>
-								<span class="tag pcg">PCG</span>
-								<span class="tag game">Game jam</span>
-								<span class="tag">Javascript</span>
-								<span class="tag">HTML</span>
-							</div>
-						</div>
-					</div>
-					<div class="box style3">
-						<span class="image" style="border: 2px solid #b6ff38;">
-							<a href="https://github.com/corvuscorae/chess-123">
-								<img src="images/chess.png" alt="" />
-						</a></span>
-						<div class="content">
-							<h3><a href="https://github.com/corvuscorae/chess-123">Classic games in C++</a></h3>
-							<p>A trio of classic games built in C++ as part of an advanced programming course taught by Graeme Devine: <a href="https://github.com/corvuscorae/tic-tac-toe">Tic Tac Toe</a>, <a href="https://github.com/corvuscorae/connect-4-123">Connect 4</a>, and <a href="https://github.com/corvuscorae/chess-123">Chess</a>. Each includes a fully playable negamax AI with alpha-beta pruning, with UIs built using Dear ImGui. For Chess specifically, I implemented FEN string parsing and legal move generation for all piece types, and spent time comparing assembly output between implementations to land on the most efficient approach. There's still plenty of room to improve these AIs, but they do consistently beat me, which feels like a reasonable bar.</p>
-							<div class="tags">
-								<span class="tag">C++</span>
-								<span class="tag">negamax</span>
-								<span class="tag">alpha-beta pruning</span>
-								<span class="tag">Dear ImGui</span>
-							</div>
-						</div>
-					</div>
-					<div class="box style3">
-						<span class="image" style="border: 2px solid #b6ff38;">
-							<a href="https://corvuscorae.github.io/guy_generator/">
-								<img src="images/guy_gen.png" alt="" />
-						</a></span>
-						<div class="content">
-							<h3><a href="https://corvuscorae.github.io/guy_generator/">Guy Generator*</a></h3>
-							<p>A grammar-based text generation system built around character personality. The goal was to push beyond generic procedural dialogue and make speakers feel genuinely distinct. Any character's voice is driven by personality variables that shape what they say and how they say it. Flavor filler and trait-weighted phrasing mean two characters can express the same idea in completely different ways. Designed with reusability in mind: the system is built as a tool, making it easy to plug in new character types, quirk sets, and personality levels. <i>*ongoing project</i></p>
-							<div class="tags">
-								<span class="tag narrative">Narrative</span>
-								<span class="tag pcg">PCG</span>
-								<span class="tag">P5js</span>
-								<span class="tag">Javascript</span>
-							</div>
-						</div>
-					</div>
-					<div class="box style3">
-						<span class="image" style="border: 2px solid #b6ff38;">
-							<a href="https://github.com/corvuscorae/story-dungeon">
-								<img src="images/dungeon.png" alt="" />
-						</a></span>
-						<div class="content">
-							<h3><a href="https://github.com/corvuscorae/story-dungeon">Story Dungeon*</a></h3>
-							<p>An experiment in unordered narrative. What happens when a player is dropped into the middle of a story, with no guaranteed beginning? Story Dungeon pairs random dungeon generation with procedural story beat placement, using dictionaries to map passages to investigatable threads so the world always feels like there's more to uncover. The challenge was making a randomly ordered story still feel like it had mystery and momentum. This is a prototype, but the core question driving it is one worth exploring further: can a story feel cohesive even when you can't predict where it starts? <i>*ongoing project</i></p>
-							<div class="tags">
-								<span class="tag narrative">Narrative</span>
-								<span class="tag pcg">PCG</span>
-								<span class="tag">Love2D</span>
-								<span class="tag">Lua</span>
-							</div>
-						</div>
-					</div>
-					<div class="box style3">
-						<span class="image" style="border: 2px solid #b6ff38;">
-							<a href="https://corvuscorae.github.io/SketchTilerWFC/">
-								<img src="images/sketch.png" alt="" />
-						</a></span>
-						<div class="content">
-							<h3><a href="https://corvuscorae.github.io/SketchTilerWFC/">SketchTiler</a></h3>
-							<p>A level ideation tool designed to lower the barrier to entry for tile-based level design. Users sketch a rough layout, and the tool translates that sketch into a full tilemap using Wave Function Collapse. I handled the translation layer from sketch data to tile data, and redesigned the WFC algorithm using a hierarchical approach (bringing generation time down from around 10 seconds to under 1). The goal was to make the ideation phase faster and more intuitive, especially for designers who aren't already fluent in tile-based level design.</p>
-							<div class="tags">
-								<span class="tag pcg">PCG</span>
-								<span class="tag research">Research</span>
-								<span class="tag">Phaser</span>
-								<span class="tag">Javascript</span>
-							</div>
-						</div>
-					</div>
-					<div class="box style3">
-						<span class="image" style="border: 2px solid #b6ff38;">
-							<a href="https://llwatkin.github.io/final-project/">
-								<img src="images/real.png" alt="" />
-						</a></span>
-						<div class="content">
-							<h3><a href="https://llwatkin.github.io/final-project/">REAL World</a></h3>
-							<p>A procedural world simulator built around the idea that history should make sense. Countries are generated with randomized resources and cultural values, then mapped to political ideologies through a value system. From there, relationships and histories are derived logically. Politically opposed nations become rivals; citizens' concerns reflect the realities of their resources and relationships. The result is a world that feels like it has a logical past and present. I led the lore system and the logic driving faction relationships and generated histories.</p>
-							<div class="tags">
-								<span class="tag pcg">PCG</span>
-								<span class="tag narrative">Narrative</span>
-								<span class="tag">Javascript</span>
-							</div>
-						</div>
-					</div>
-					<div class="box style3">
-						<span class="image" style="border: 2px solid #b6ff38;">
-							<a href="https://corvuscorae.itch.io/beat-galactic">
-								<img src="images/beats.png" alt="" />
-						</a></span>
-						<div class="content">
-							<h3><a href="https://corvuscorae.itch.io/beat-galactic/">Beat Galactic</a></h3>
-							<p>An audio experiment, made mostly for the joy of it. Beat Galactic procedurally assembles individual loops into a complete song, layering, sequencing, and grouping them on the fly. It got a little weird, honestly, but that was kind of the point. It pushed me to think seriously about procedural audio design and what it means for music to feel intentional when it's generated.</p>
-							<div class="tags">
-								<span class="tag pcg">PCG</span>
-								<span class="tag">Audio</span>
-								<span class="tag">Love2D</span>
-								<span class="tag">Lua</span>
-							</div>
-						</div>
-					</div>
-					<div class="box style3">
-						<span class="image" style="border: 2px solid #b6ff38;">
-							<a href="https://corvuscorae.itch.io/plums">
-								<img src="images/plums.png" alt="" />
-						</a></span>
-						<div class="content">
-							<h3><a href="https://corvuscorae.itch.io/plums">plums from the tree</a></h3>
-							<p>A short, prose-forward text game and a pure writing exercise. No elaborate systems, just careful attention to language, pacing, and the feeling a small interactive story can leave behind. Written about the sense of home and its propensity to haunt you as you grow older.</p>
-							<div class="tags">
-								<span class="tag narrative">Writing</span>
-								<span class="tag narrative">Narrative</span>
-								<span class="tag">HTML</span>
-							</div>
-						</div>
+		</header>
+
+		<main id="top">
+			<section class="hero section">
+				<div class="hero-copy">
+					<p class="eyebrow">game dev, creative coder, artist</p>
+					<h1>tinkering for art and play</h1>
+					<p class="hero-intro">I started out in game developement to tell stories, then I fell in love with the whole process. I build procedural tools to lower the barrier of entry into making games, and I use those same principles of cultivated randomness to create generative art. My obsession with PCG melded with my love for writing in the form of procedural systems for narrative; however, I also still love putting pen to paper and writing stories, lore, and dialogue.</p>
+					<p class="hero-intro">My work includes two peer-reviewed publications exploring procedural generation, co-creative tools, and AI-assisted design.</p>
+					<p class="placeholder-copy">systems, stories, play</p>
+					<div class="hero-actions">
+						<a class="button primary" href="#work">Selected work</a>
+						<a class="button" href="#lab">Enter the lab</a>
 					</div>
 				</div>
-			</article>
+				<div class="hero-visual" aria-hidden="true">
+					<canvas id="hero-interaction"></canvas>
+				</div>
+			</section>
 
-		<!-- About, contact -->
-		<article id="contact" class="wrapper style1">
-			<div class="container">
-				<div class="row aln-left">
-					<div class="col-4 col-5-large col-12-small">
-						<span class="image left"><img src="images/raven_B.png" style="border: 2px solid #4900c7;"></span>
+			<section class="section practice-section" aria-labelledby="practice-title">
+				<div class="section-heading">
+					<div>
+						<p class="eyebrow">Ways I work</p>
+						<h2 id="practice-title">my creative practice</h2>
 					</div>
-					<div class="col-10">
-						<header>
-							<h1><strong>Raven Ruiz</strong></h1>
-							<h3><b><a href="mailto:ravencruzruiz@gmail.com">ravecruzruiz@gmail.com</a></b></h3>
-							<ul class="social">
-								<li><a href="https://www.linkedin.com/in/ravenlcruz/" class="fa-brands fa-linkedin"></a></li>
-								<li><a href="https://github.com/corvuscorae" class="fa-brands fa-github"></a></li>
-								<li><a href="https://corvuscorae.itch.io/" class="fa-brands fa-itch-io"></a></li>
-								<li><a href="https://bsky.app/profile/corvuscorae.bsky.social" class="fa-brands fa-square-bluesky"></a></li>
+				</div>
+				<div class="practice-grid">
+					<a class="practice-card" href="#work">
+						<span class="practice-number">01</span>
+						<h3>Games and interactive work</h3>
+						<p>Systems, stories, interfaces, and experiences built around play.</p>
+					</a>
+					<a class="practice-card" href="#lab">
+						<span class="practice-number">02</span>
+						<h3>Generative systems and creative code</h3>
+						<p>Procedural tools, generators, prototypes, and experiments.</p>
+					</a>
+				</div>
+				<p><a class="practice-secondary-link" href="#research">
+					<span>published works</span>
+					<small>my work in published research</small>
+				</a></p>
+				<p><a class="practice-secondary-link" href="archive.html">
+					<span>creative archive</span>
+					<small>where it all started; art and writing</small>
+				</a></p>	
+			</section>
+
+			<section id="work" class="section work-section">
+				<div class="section-heading">
+					<div>
+						<p class="eyebrow">Selected work</p>
+						<h2>procedurality in play</h2>
+					</div>
+					<p class="section-note">projects I'm proud of</p>
+				</div>
+
+				<div class="filters" role="group" aria-label="Filter projects">
+					<button type="button" class="filter-button active" data-filter="all">All</button>
+					<button type="button" class="filter-button" data-filter="games">Games</button>
+					<button type="button" class="filter-button" data-filter="generative">Generative</button>
+					<button type="button" class="filter-button" data-filter="narrative">Narrative</button>
+					<button type="button" class="filter-button" data-filter="research">Research</button>
+				</div>
+
+				<div class="featured-grid">
+					<article class="project-card featured-project" data-categories="games generative design">
+						<img class="project-media" src="images/topple.png" alt="toppletee golfer in position" />
+						<div class="project-copy">
+							<div class="project-meta">
+								<span>Featured project</span>
+								<span>2026</span>
+							</div>
+							<h3>toppletee</h3>
+							<p>ToppleTee is a golf game where the primary control for each swing is in the player's posture. Inspired by my experience as someone who is very bad at golf, players must adjust each individual joint to get into position; with luck, their posture will be good enough to hit straight. I made it for Reddit's Games with a Hook hackathon, building the core mechanics, procedural courses, interface, and art as a solo dev.</p>
+							<ul class="tag-list" aria-label="toppletee tags">
+								<li>Game design</li>
+								<li>Interaction design</li>
+								<li>Procedural generation</li>
+								<li>TypeScript</li>
 							</ul>
-						</header>
-						<p>
-							I'm a writer, a programmer, and a game designer. 
-							I'm interested in narrative design and systems, game writing, procedural generation, and the intersection of all three!
-							A proud recent grad from UCSC's Computer Science: Game Design program.
-						</p>
+							<div class="card-actions">
+								<button class="text-button" type="button" data-dialog="toppletee-dialog">View case study</button>
+								<a class="text-link muted" href="https://www.reddit.com/r/toppletee" target="_blank" rel="noopener noreferrer">Visit r/toppletee</a>
+							</div>
+						</div>
+					</article>
+
+					<article class="project-card" data-categories="generative research design">
+						<img class="project-media" src="images/sketch.png" alt="SketchTiler interface translating a sketch into a tilemap" />
+						<div class="project-copy">
+							<div class="project-meta">
+								<span>Research tool</span>
+								<span>2025</span>
+							</div>
+							<h3>SketchTiler</h3>
+							<p>A level ideation tool that translates rough sketches into full tilemaps using Wave Function Collapse.</p>
+							<p><i>published at IEEE CoG 2025</i></p>
+							<ul class="tag-list" aria-label="SketchTiler tags">
+								<li>PCG</li>
+								<li>Research</li>
+								<li>Tool design</li>
+								<li>JavaScript</li>
+							</ul>
+							<div class="card-actions">
+								<button class="text-button" type="button" data-dialog="sketchtiler-dialog">View case study</button>
+								<a class="text-link muted" href="https://corvuscorae.github.io/SketchTilerWFC/" target="_blank" rel="noreferrer">Open tool</a>
+							</div>
+						</div>
+					</article>
+
+					<article class="project-card" data-categories="games narrative generative design">
+						<img class="project-media" src="images/astroframe.jpg" alt="AstroFrame game artwork" />
+						<div class="project-copy">
+							<div class="project-meta">
+								<span>Team game</span>
+								<span>2026</span>
+							</div>
+							<h3>AstroFrame</h3>
+							<p>A 2D roguelike built around ship building, combat, exploration, and procedural narrative systems.</p>
+							<ul class="tag-list" aria-label="AstroFrame tags">
+								<li>Narrative design</li>
+								<li>Systems design</li>
+								<li>PCG</li>
+								<li>Godot</li>
+							</ul>
+							<div class="card-actions">
+								<button class="text-button" type="button" data-dialog="astroframe-dialog">View case study</button>
+								<a class="text-link muted" href="https://store.steampowered.com/app/4420390/AstroFrame/" target="_blank" rel="noreferrer">Steam page</a>
+							</div>
+						</div>
+					</article>
+
+					<article class="project-card" data-categories="games narrative generative design">
+						<img class="project-media" src="images/mproot.png" alt="Mind Palace game interface" />
+						<div class="project-copy">
+							<div class="project-meta">
+								<span>Game jam</span>
+								<span>2026</span>
+							</div>
+							<h3>Mind Palace: Running Out of Time</h3>
+							<p>A procedural mystery where the player constructs a case from generated characters, relationships, and evidence.</p>
+							<ul class="tag-list" aria-label="Mind Palace tags">
+								<li>Narrative</li>
+								<li>Game design</li>
+								<li>PCG</li>
+								<li>JavaScript</li>
+							</ul>
+							<div class="card-actions">
+								<button class="text-button" type="button" data-dialog="mind-palace-dialog">View case study</button>
+								<a class="text-link muted" href="https://corvuscorae.itch.io/mind-palace-running-out-of-time" target="_blank" rel="noreferrer">Play it</a>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section id="research" class="section research-section">
+				<div class="section-heading">
+					<div>
+						<p class="eyebrow">published research</p>
+						<h2>peer-reviewed</h2>
+					</div>
+					<p class="section-note">co-creative tools, procedural generation, AI-assisted design</p>
+				</div>
+
+				<div class="research-grid">
+					<article class="research-card">
+						<div class="research-media-wrap">
+							<img class="research-media" src="images/st_pub.png" />
+						</div>
+						<div class="research-copy">
+							<div class="research-meta">
+								<span>IEEE Conference on Games</span>
+								<span>2025</span>
+							</div>
+							<h3>SketchTiler: Co-Creative Sketch-to-Tilemap Conversion Using Wave Function Collapse</h3>
+							<p>A co-creative level ideation tool that translates rough sketches into full tilemaps using Wave Function Collapse.</p>
+							<div class="research-contribution">
+								<p class="eyebrow">my contribution</p>
+								<p>I built the sketch-to-tile translation layer and redesigned the WFC implementation using a hierarchical approach, reducing average generation time from around 10 seconds to around 1 second.</p>
+							</div>
+							<ul class="tag-list" aria-label="SketchTiler research tags">
+								<li>Co-creative tools</li>
+								<li>Wave Function Collapse</li>
+								<li>Tool design</li>
+								<li>JavaScript</li>
+							</ul>
+							<div class="research-actions">
+								<a class="button primary" href="https://ieeexplore.ieee.org/document/11114168" target="_blank" rel="noreferrer">Read paper</a>
+								<a class="text-link" href="https://corvuscorae.github.io/SketchTilerWFC/" target="_blank" rel="noreferrer">My contribution snapshot</a>
+								<a class="text-link muted" href="https://github.com/Ericcccccai/SketchTiler" target="_blank" rel="noreferrer">Current official project</a>
+							</div>
+						</div>
+					</article>
+
+					<article class="research-card">
+						<div class="research-media-wrap">
+							<img class="research-media" src="images/convos.png" />
+						</div>
+						<div class="research-copy">
+							<div class="research-meta">
+								<span>Foundations of Digital Games</span>
+								<span>2025</span>
+							</div>
+							<h3>Conversational Interactions with Procedural Generators Using Large Language Models</h3>
+							<p>Research into how designers can communicate with procedural generators through natural language.</p>
+							<div class="research-contribution">
+								<p class="eyebrow">my contribution</p>
+								<p>I built a JavaScript/HTML5 level generator and a programmatic annotation pipeline that produced structured training data, then evaluated model responses for accuracy and documented where and why outputs failed.</p>
+							</div>
+							<ul class="tag-list" aria-label="Conversational procedural generation research tags">
+								<li>Large language models</li>
+								<li>Procedural generation</li>
+								<li>Training data</li>
+								<li>Evaluation</li>
+							</ul>
+							<div class="research-actions">
+								<a class="button primary" href="https://doi.org/10.1145/3723498.3723788" target="_blank" rel="noreferrer">Read paper</a>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section id="lab" class="section lab-section">
+				<div class="section-heading">
+					<div>
+						<p class="eyebrow">The lab</p>
+						<h2>poking and prodding</h2>
+					</div>
+					<p class="section-note">experiments, prototypes, works in progress</p>
+				</div>
+
+				<div class="experiment-grid">
+					<article class="experiment-card">
+						<img src="images/guy_gen.png" alt="Guy Generator interface" />
+						<div>
+							<h3>Guy Generator</h3>
+							<p>A grammar-based text generation system built around character personality.</p>
+							<a class="text-link" href="https://corvuscorae.github.io/guy_generator/" target="_blank" rel="noreferrer">Open project</a>
+						</div>
+					</article>
+					<article class="experiment-card">
+						<img src="images/dungeon.png" alt="Story Dungeon prototype" />
+						<div>
+							<h3>Story Dungeon</h3>
+							<p>An experiment in unordered narrative and procedural story beat placement.</p>
+							<a class="text-link" href="https://github.com/corvuscorae/story-dungeon" target="_blank" rel="noreferrer">View code</a>
+						</div>
+					</article>
+					<article class="experiment-card">
+						<img src="images/real.png" alt="REAL World procedural world simulator" />
+						<div>
+							<h3>REAL World</h3>
+							<p>A procedural world simulator where generated histories follow the logic of resources, values, and relationships.</p>
+							<a class="text-link" href="https://llwatkin.github.io/final-project/" target="_blank" rel="noreferrer">Open project</a>
+						</div>
+					</article>
+					<article class="experiment-card">
+						<img src="images/beats.png" alt="Beat Galactic procedural audio project" />
+						<div>
+							<h3>Beat Galactic</h3>
+							<p>An audio experiment that procedurally layers, sequences, and groups loops into a song.</p>
+							<a class="text-link" href="https://corvuscorae.itch.io/beat-galactic" target="_blank" rel="noreferrer">Open project</a>
+						</div>
+					</article>
+				</div>
+			</section>
+
+
+			<section class="section archive-section">
+				<div class="section-heading">
+					<div>
+						<p class="eyebrow">More work</p>
+						<h2>additional projects</h2>
+					</div>
+				</div>
+				<div class="archive-grid">
+					<a class="archive-card" href="https://github.com/corvuscorae/chess-123" target="_blank" rel="noreferrer">
+						<img src="images/chess.png" alt="Chess game built in C++" />
+						<div><h3>Classic games in C++</h3><p>Tic Tac Toe, Connect 4, and Chess with playable negamax AI.</p></div>
+					</a>
+					<a class="archive-card" href="https://corvuscorae.itch.io/plums" target="_blank" rel="noreferrer">
+						<img src="images/plums.png" alt="plums from the tree text game" />
+						<div><h3>plums from the tree</h3><p>A short, prose-forward text game about home and memory.</p></div>
+					</a>
+				</div>
+			</section>
+
+			<section id="about" class="section about-section">
+				<div class="about-image-wrap">
+					<img src="images/raven_B.png" alt="Portrait of Raven Cruz" />
+				</div>
+				<div class="about-copy">
+					<p class="eyebrow">About</p>
+					<h2>Raven Cruz</h2>
+					<p>I'm a writer, a programmer, and a game designer. I'm interested in narrative design and systems, game writing, procedural generation, and the intersection of all three. A proud recent grad from UCSC's Computer Science: Game Design program.</p>
+					<!-- <p class="placeholder-copy">[ABOUT ME SECTION: ADD PERSONAL CONTEXT, YOUR CREATIVE INTERESTS, AND WHAT YOU ARE LOOKING FOR NEXT]</p> -->
+					<div class="about-details">
+						<div>
+							<h3>Tools</h3>
+							<p>JavaScript, TypeScript, HTML5, C++, C#, Lua, Godot, Unity, Phaser, p5.js, Photoshop, Lightroom, Premiere Pro, Krita, Git</p>
+						</div>
+						<div>
+							<h3>Research</h3>
+							<p>Conversational Interactions with Procedural Generators using Large Language Models, FDG 2025</p>
+							<p>SketchTiler: Co-Creative Sketch-to-Tilemap Conversion Using Wave Function Collapse, IEEE CoG 2025</p>
+						</div>
+					</div>
+					<div class="about-actions">
+						<a class="button primary" href="resume.pdf" target="_blank" rel="noreferrer">View resume</a>
+						<a class="button" href="mailto:ravencruzruiz@gmail.com">Email me</a>
+					</div>
+					<ul class="social-links" aria-label="Social links">
+						<li><a href="https://www.linkedin.com/in/ravenlcruz/" target="_blank" rel="noreferrer"><span class="fa-brands fa-linkedin" aria-hidden="true"></span><span>LinkedIn</span></a></li>
+						<li><a href="https://github.com/corvuscorae" target="_blank" rel="noreferrer"><span class="fa-brands fa-github" aria-hidden="true"></span><span>GitHub</span></a></li>
+						<li><a href="https://corvuscorae.itch.io/" target="_blank" rel="noreferrer"><span class="fa-brands fa-itch-io" aria-hidden="true"></span><span>itch.io</span></a></li>
+						<li><a href="https://bsky.app/profile/corvuscorae.bsky.social" target="_blank" rel="noreferrer"><span class="fa-brands fa-square-bluesky" aria-hidden="true"></span><span>Bluesky</span></a></li>
+					</ul>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<p>Raven Cruz</p>
+			<a href="#top">Back to top</a>
+		</footer>
+
+		<dialog id="toppletee-dialog" class="project-dialog">
+			<button class="dialog-close" type="button" aria-label="Close case study">Close</button>
+			<div class="dialog-layout">
+				<img class="dialog-media image-media" src="images/topple.png" alt="ToppleTee golfer adjusting their posture" />
+				<div>
+					<p class="eyebrow">toppletee</p>
+					<h2>making golf difficult in all the wrong ways</h2>
+					<p>ToppleTee is a golf game where the golfer's entire body becomes the controller. Instead of just choosing a direction and stopping a power meter of some kind, players adjust individual joints, select a club, aim, and hope their posture is good enough to send the ball where they intended. Just like when I play golf IRL.</p>
+					<h3>The idea</h3>
+					<p>I came up with ToppleTee after repeatedly failing to hit a decent drive while my wife tried to correct my posture. Most golf games remove that physical frustration, so I wondered what would happen if a game made it the central mechanic. Every small adjustment to the golfer's knees, shoulders, elbows, and hands affects the resulting shot.</p>
+					<h3>What I did</h3>
+					<p>I designed and developed ToppleTee as a solo project for Reddit's Games with a Hook hackathon. I built the posture and swing systems, procedural course generation, ball physics, club behavior, daily and practice modes, interface, art, and Reddit Devvit integration.</p>
+					<h3>Design process</h3>
+					<p>The central challenge was translating joint positions into ball physics in a learnable way, while still balancing frustration with fun. Each club uses its own ideal posture profile, while the game evaluates the player's pose and translates its mistakes into changes in distance, accuracy, and shot shape. Feedback after each swing helps the player understand which part of their posture had the greatest effect.</p>
+					<h3>Reflection</h3>
+					<p>ToppleTee taught me how much iteration it takes to make intentional frustration feel playful. The most successful moments happen when a shot goes terribly wrong for a reason the player can recognize, followed by the brief triumph of finally getting everything to line up.</p>
+					<div class="card-actions">
+						<a class="button primary" href="https://www.reddit.com/r/toppletee" target="_blank" rel="noopener noreferrer">Play on Reddit</a>
 					</div>
 				</div>
 			</div>
-		</article>
+		</dialog>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<dialog id="sketchtiler-dialog" class="project-dialog">
+			<button class="dialog-close" type="button" aria-label="Close case study">Close</button>
+			<div class="dialog-layout">
+				<img class="dialog-media image-media" src="images/sketch.png" alt="SketchTiler interface" />
+				<div>
+					<p class="eyebrow">SketchTiler</p>
+					<h2>Co-creative sketch-to-tilemap generation</h2>
+					<p>A level ideation tool designed to lower the barrier to entry for tile-based level design. Users sketch a rough layout, and the tool translates that sketch into a full tilemap using Wave Function Collapse.</p>
+					<h3>What I did</h3>
+					<p>I handled the translation layer from sketch data to tile data, and redesigned the WFC algorithm using a hierarchical approach, bringing generation time down from around 10 seconds to under 1.</p>
+					<h3>Design goal</h3>
+					<p>The goal was to make the ideation phase faster and more intuitive, especially for designers who aren't already fluent in tile-based level design.</p>
+					<!-- <p class="placeholder-copy">[ADD PROCESS IMAGES, EARLY VERSIONS, USER FLOW, AND A SHORT REFLECTION]</p> -->
+				</div>
+			</div>
+		</dialog>
 
+		<dialog id="astroframe-dialog" class="project-dialog">
+			<button class="dialog-close" type="button" aria-label="Close case study">Close</button>
+			<div class="dialog-layout">
+				<img class="dialog-media image-media" src="images/astroframe.jpg" alt="AstroFrame artwork" />
+				<div>
+					<p class="eyebrow">AstroFrame</p>
+					<h2>A roguelike built around ship building, combat, and exploration.</h2>
+					<p>AstroFrame is a 2D roguelike built in Godot around ship building, combat, and exploration. As design lead, I architected spreadsheet-driven data pipelines to manage game state and balance, keeping the full system legible and iterable without touching engine code.</p>
+					<h3>Narrative and systems</h3>
+					<p>As narrative lead, I wrote the world's history from the ground up, including faction lore, characters, and the stories that give the universe texture. I also worked on the roguelike side, designing randomization systems that keep runs feeling fresh.</p>
+					<!-- <p class="placeholder-copy">[UPDATE THE PROJECT STATUS, TEAM SIZE, FINAL RESPONSIBILITIES, AND CURRENT RELEASE INFORMATION]</p> -->
+				</div>
+			</div>
+		</dialog>
+
+		<dialog id="mind-palace-dialog" class="project-dialog">
+			<button class="dialog-close" type="button" aria-label="Close case study">Close</button>
+			<div class="dialog-layout">
+				<img class="dialog-media image-media" src="images/mproot.png" alt="Mind Palace interface" />
+				<div>
+					<p class="eyebrow">Mind Palace: Running Out of Time</p>
+					<h2>A procedural mystery with no fixed truth.</h2>
+					<p>A game jam project tackling one of the harder problems in procedural generation: the mystery. Inspired by the failures of real-world criminal justice, where innocence and guilt aren't always what determine a verdict, the game casts the player as a lawyer who constructs a case from whatever evidence they find.</p>
+					<h3>Generated evidence</h3>
+					<p>Characters are generated with interests, jobs, and relationships, then assigned roles that shape what evidence exists to be discovered. A job might place someone at a scene; a relationship might become a motive.</p>
+					<h3>Design outcome</h3>
+					<p>Despite the difficulty in crafting a procedural mystery, I count the player's agency as one of our design wins; the truth is yours to make.</p>
+					<!-- <p class="placeholder-copy">[ADD YOUR SPECIFIC ROLE, TEAM SIZE, JAM CONSTRAINTS, AND WHAT YOU LEARNED]</p> -->
+				</div>
+			</div>
+		</dialog>
+
+		<script src="assets/js/portfolio.js"></script>
 	</body>
 </html>
