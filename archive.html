@@ -24,12 +24,6 @@
 		</header>
 
 		<main id="top">
-			<section class="section archive-hero">
-				<p class="eyebrow">creative archive</p>
-				<h1>where it all started</h1>
-				<p class="hero-intro">A collection of visual art, photography, fiction, lore, and other work that shaped how I approach games and interactive systems.</p>
-			</section>
-
 			<section class="section art-section">
 				<div class="section-heading">
 					<div>
@@ -38,22 +32,37 @@
 					</div>
 				</div>
 
-				<div class="art-grid">
-					<div class="construction-block art-item art-item-large">
-						<span>UNDER CONSTRUCTION</span>
-						<strong>[FEATURED DIGITAL ART]</strong>
-					</div>
-					<div class="construction-block art-item">
-						<span>UNDER CONSTRUCTION</span>
-						<strong>[PHOTOGRAPHY]</strong>
-					</div>
-					<div class="construction-block art-item">
-						<span>UNDER CONSTRUCTION</span>
-						<strong>[ILLUSTRATION]</strong>
-					</div>
+                <div class="archive-gallery" data-gallery>
+					<button class="archive-gallery-item archive-gallery-item-featured" type="button" data-full="images/archive/art-01.jpg" data-title="Artwork 01">
+						<img src="images/archive/art-01.jpg" alt="[ADD DESCRIPTION FOR ARTWORK 01]" loading="lazy" />
+					</button>
+					<button class="archive-gallery-item archive-gallery-item-tall" type="button" data-full="images/archive/art-02.jpg" data-title="Artwork 02">
+						<img src="images/archive/art-02.jpg" alt="[ADD DESCRIPTION FOR ARTWORK 02]" loading="lazy" />
+					</button>
+					<button class="archive-gallery-item" type="button" data-full="images/archive/art-03.jpg" data-title="Artwork 03">
+						<img src="images/archive/art-03.jpg" alt="[ADD DESCRIPTION FOR ARTWORK 03]" loading="lazy" />
+					</button>
+					<button class="archive-gallery-item" type="button" data-full="images/archive/art-04.jpg" data-title="Artwork 04">
+						<img src="images/archive/art-04.jpg" alt="[ADD DESCRIPTION FOR ARTWORK 04]" loading="lazy" />
+					</button>
+					<button class="archive-gallery-item archive-gallery-item-wide" type="button" data-full="images/archive/art-05.jpg" data-title="Artwork 05">
+						<img src="images/archive/art-05.jpg" alt="[ADD DESCRIPTION FOR ARTWORK 05]" loading="lazy" />
+					</button>
+					<button class="archive-gallery-item archive-gallery-item-tall" type="button" data-full="images/archive/art-06.jpg" data-title="Artwork 06">
+						<img src="images/archive/art-06.jpg" alt="[ADD DESCRIPTION FOR ARTWORK 06]" loading="lazy" />
+					</button>
+					<button class="archive-gallery-item" type="button" data-full="images/archive/art-07.jpg" data-title="Artwork 07">
+						<img src="images/archive/art-07.jpg" alt="[ADD DESCRIPTION FOR ARTWORK 07]" loading="lazy" />
+					</button>
+					<button class="archive-gallery-item archive-gallery-item-wide" type="button" data-full="images/archive/art-08.jpg" data-title="Artwork 08">
+						<img src="images/archive/art-08.jpg" alt="[ADD DESCRIPTION FOR ARTWORK 08]" loading="lazy" />
+					</button>
+					<button class="archive-gallery-item" type="button" data-full="images/archive/art-09.jpg" data-title="Artwork 09">
+						<img src="images/archive/art-09.jpg" alt="[ADD DESCRIPTION FOR ARTWORK 09]" loading="lazy" />
+					</button>
 				</div>
 			</section>
-
+<!--
 			<section class="section writing-section">
 				<div class="section-heading">
 					<div>
@@ -71,12 +80,25 @@
 					</a>
 				</div>
 			</section>
-		</main>
+    -->
+        </main>
 
 		<footer class="site-footer">
 			<p>Raven Cruz</p>
 			<a href="index.html">Return to portfolio</a>
 		</footer>
+
+        <dialog id="art-lightbox" class="art-lightbox">
+			<div class="art-lightbox-layout">
+				<button class="art-lightbox-close" type="button" aria-label="Close image">Close</button>
+				<button class="art-lightbox-nav art-lightbox-previous" type="button" aria-label="View previous image">Previous</button>
+				<figure class="art-lightbox-figure">
+					<img class="art-lightbox-image" src="" alt="" />
+					<figcaption class="art-lightbox-title"></figcaption>
+				</figure>
+				<button class="art-lightbox-nav art-lightbox-next" type="button" aria-label="View next image">Next</button>
+			</div>
+		</dialog>
 
 		<script src="assets/js/portfolio.js"></script>
 	</body>

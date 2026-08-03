@@ -417,3 +417,69 @@ if (hero && heroCanvas) {
 	resizeHeroCanvas();
 	window.requestAnimationFrame(animate);
 }
+
+
+// art gallery page
+
+const artGalleryItems = Array.from(document.querySelectorAll(".archive-gallery-item"));
+const artLightbox = document.querySelector("#art-lightbox");
+const artLightboxImage = artLightbox?.querySelector(".art-lightbox-image");
+const artLightboxTitle = artLightbox?.querySelector(".art-lightbox-title");
+const artLightboxClose = artLightbox?.querySelector(".art-lightbox-close");
+const artLightboxPrevious = artLightbox?.querySelector(".art-lightbox-previous");
+const artLightboxNext = artLightbox?.querySelector(".art-lightbox-next");
+
+let currentArtIndex = 0;
+
+const showArtImage = (index) => {
+	if (!artLightbox || !artLightboxImage || artGalleryItems.length === 0) {
+		return;
+	}
+
+	currentArtIndex = (index + artGalleryItems.length) % artGalleryItems.length;
+
+	const item = artGalleryItems[currentArtIndex];
+	const thumbnail = item.querySelector("img");
+
+	artLightboxImage.src = item.dataset.full || thumbnail.src;
+	artLightboxImage.alt = thumbnail.alt;
+
+	if (artLightboxTitle) {
+		artLightboxTitle.textContent = item.dataset.title || "";
+	}
+};
+
+artGalleryItems.forEach((item, index) => {
+	item.addEventListener("click", () => {
+		showArtImage(index);
+		artLightbox.showModal();
+	});
+});
+
+artLightboxClose?.addEventListener("click", () => {
+	artLightbox.close();
+});
+
+artLightboxPrevious?.addEventListener("click", () => {
+	showArtImage(currentArtIndex - 1);
+});
+
+artLightboxNext?.addEventListener("click", () => {
+	showArtImage(currentArtIndex + 1);
+});
+
+artLightbox?.addEventListener("click", (event) => {
+	if (event.target === artLightbox) {
+		artLightbox.close();
+	}
+});
+
+artLightbox?.addEventListener("keydown", (event) => {
+	if (event.key === "ArrowLeft") {
+		showArtImage(currentArtIndex - 1);
+	}
+
+	if (event.key === "ArrowRight") {
+		showArtImage(currentArtIndex + 1);
+	}
+});
