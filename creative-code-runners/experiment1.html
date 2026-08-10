@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>experiment1 runner</title>
+	<base href="https://corvuscorae.github.io/creativecoding/experiment1/" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<style>
+		:root {
+			--background: #0c0b10;
+			--surface: #15131b;
+			--surface-raised: #1d1a25;
+			--text: #f6f2ee;
+			--muted: #aaa4b1;
+			--line: #37313f;
+			--lime: #b6ff38;
+			--purple: #8f5cff;
+			--orange: #ff8b3d;
+			--pink: #ff5da2;
+			--blue: #53c7ff;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background: var(--background);
+			color: var(--text);
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		button,
+		input,
+		select,
+		textarea {
+			font: inherit;
+		}
+
+		button,
+		select,
+		input[type="text"],
+		textarea {
+			border: 1px solid var(--line);
+			border-radius: 0.7rem;
+			color: var(--text);
+			background: var(--surface-raised);
+		}
+
+		button {
+			padding: 0.55rem 0.8rem;
+			cursor: pointer;
+		}
+
+		button:hover,
+		button:focus-visible,
+		select:focus-visible,
+		input:focus-visible,
+		textarea:focus-visible {
+			border-color: var(--lime);
+			outline: none;
+		}
+
+		input[type="text"],
+		select {
+			width: 100%;
+			padding: 0.5rem 0.65rem;
+		}
+
+		input[type="range"] {
+			width: 100%;
+			accent-color: var(--lime);
+		}
+
+		input[type="checkbox"] {
+			accent-color: var(--lime);
+		}
+
+		textarea {
+			width: 100% !important;
+			min-width: 0 !important;
+			height: 14rem !important;
+			min-height: 0 !important;
+			padding: 0.6rem;
+			resize: none;
+			font-family: "Courier New", Courier, monospace;
+			font-size: 0.72rem;
+			line-height: 1.05;
+			white-space: pre;
+		}
+
+		.runner-shell {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) var(--panel-width, 250px);
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		.runner-stage {
+			position: relative;
+			min-width: 0;
+			min-height: 0;
+			display: grid;
+			place-items: center;
+			overflow: hidden;
+			background:
+				radial-gradient(circle at 60% 38%, rgba(143, 92, 255, 0.13), transparent 26rem),
+				#05040a;
+		}
+
+		#canvas-container {
+			position: absolute;
+			inset: 0;
+			min-width: 0;
+			min-height: 0;
+			display: grid;
+			place-items: center;
+			overflow: hidden;
+		}
+
+		#canvas-container canvas,
+		#active canvas {
+			position: absolute !important;
+			left: 50% !important;
+			top: 50% !important;
+			display: block !important;
+			max-width: none !important;
+			max-height: none !important;
+			margin: 0 !important;
+			transform: translate(-50%, -50%) !important;
+			transform-origin: center center !important;
+		}
+
+		.runner-panel {
+			position: relative;
+			z-index: 5;
+			min-width: 0;
+			height: 100vh;
+			padding: 4.6rem 1rem 1rem;
+			overflow: hidden;
+			border-left: 1px solid var(--line);
+			background: rgba(21, 19, 27, 0.98);
+		}
+
+		.runner-panel-inner {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75rem;
+			height: 100%;
+			min-height: 0;
+		}
+
+		.runner-label {
+			margin: 0;
+			color: var(--lime);
+			font-family: "Courier New", Courier, monospace;
+			font-size: 0.68rem;
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+		}
+
+		.runner-instructions {
+			margin: 0;
+			padding: 0.7rem 0.8rem;
+			border: 1px solid rgba(182, 255, 56, 0.25);
+			border-radius: 0.75rem;
+			color: var(--muted);
+			background: rgba(182, 255, 56, 0.05);
+			font-size: 0.78rem;
+			line-height: 1.35;
+		}
+
+		.runner-control-group {
+			display: grid;
+			gap: 0.45rem;
+		}
+
+		.runner-control-group label,
+		.runner-control-group > span,
+		.runner-generated-controls p,
+		.runner-generated-controls label {
+			margin: 0;
+			color: var(--muted);
+			font-size: 0.76rem;
+			line-height: 1.35;
+		}
+
+		.runner-button-row {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.45rem;
+		}
+
+		.runner-button-row button {
+			flex: 1 1 auto;
+		}
+
+		.runner-generated-controls {
+			display: grid;
+			gap: 0.6rem;
+		}
+
+		.runner-generated-controls p {
+			display: grid;
+			gap: 0.35rem;
+		}
+
+		.runner-generated-controls input {
+			width: 100%;
+			padding: 0.45rem 0.6rem;
+			border: 1px solid var(--line);
+			border-radius: 0.65rem;
+			color: var(--text);
+			background: var(--surface-raised);
+		}
+
+		.runner-stats {
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 0.3rem 0.65rem;
+			padding: 0.65rem 0.75rem;
+			border: 1px solid var(--line);
+			border-radius: 0.75rem;
+			color: var(--muted);
+			background: rgba(255, 255, 255, 0.025);
+			font-size: 0.72rem;
+		}
+
+		.runner-stats strong {
+			color: var(--text);
+			font-weight: 600;
+		}
+
+		.runner-hidden {
+			position: fixed !important;
+			left: -10000px !important;
+			top: -10000px !important;
+			width: 1px !important;
+			height: 1px !important;
+			overflow: hidden !important;
+			opacity: 0 !important;
+			pointer-events: none !important;
+		}
+
+		#best,
+		#memory,
+		#inspo-img {
+			position: fixed !important;
+			left: -10000px !important;
+			top: -10000px !important;
+			width: 1px !important;
+			height: 1px !important;
+			overflow: hidden !important;
+			opacity: 0 !important;
+			pointer-events: none !important;
+		}
+
+		#active {
+			position: absolute;
+			inset: 0;
+			display: grid;
+			place-items: center;
+			overflow: hidden;
+		}
+
+		.runner-sliders {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+			min-height: 0;
+		}
+
+		.runner-sliders p {
+			margin: 0.45rem 0 0.05rem;
+			color: var(--text);
+			font-family: "Courier New", Courier, monospace;
+			font-size: 0.72rem;
+			font-weight: 700;
+		}
+
+		.runner-sliders span {
+			display: block;
+			margin-top: 0.1rem;
+			color: var(--muted);
+			font-size: 0.66rem;
+			line-height: 1.2;
+		}
+
+		.runner-sliders input[type="range"] {
+			height: 1rem;
+			margin: 0;
+		}
+
+		@media screen and (max-width: 760px) {
+			.runner-shell {
+				grid-template-columns: 1fr;
+				grid-template-rows: minmax(0, 1fr) auto;
+			}
+
+			.runner-panel {
+				width: 100%;
+				height: auto;
+				max-height: 38vh;
+				padding: 0.8rem;
+				border-top: 1px solid var(--line);
+				border-left: 0;
+			}
+
+			.runner-panel-inner {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+				align-items: start;
+				gap: 0.6rem;
+			}
+
+			.runner-instructions {
+				grid-column: 1 / -1;
+			}
+
+			.runner-sliders {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+	</style>
+
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.2/lib/p5.js"></script>
+<script src="../js/site.js" defer></script>
+<script src="./js/project.js" defer></script>
+<script src="./js/sketch.js" defer></script>
+
+	<script>
+		(() => {
+			let resizeFrame = 0;
+
+			const fitCanvas = () => {
+				cancelAnimationFrame(resizeFrame);
+
+				resizeFrame = requestAnimationFrame(() => {
+					const stage = document.querySelector(".runner-stage");
+
+					if (!stage) {
+						return;
+					}
+
+					const stageBounds = stage.getBoundingClientRect();
+
+					document.querySelectorAll("canvas").forEach((canvas) => {
+						const width = Number(canvas.width) || canvas.getBoundingClientRect().width || 1;
+						const height = Number(canvas.height) || canvas.getBoundingClientRect().height || 1;
+						const scale = Math.min(stageBounds.width / width, stageBounds.height / height);
+
+						canvas.style.width = `${Math.max(1, width * scale)}px`;
+						canvas.style.height = `${Math.max(1, height * scale)}px`;
+					});
+				});
+			};
+
+			const observer = new MutationObserver(fitCanvas);
+
+			window.addEventListener("DOMContentLoaded", () => {
+				observer.observe(document.body, {
+					childList: true,
+					subtree: true
+				});
+
+				fitCanvas();
+			});
+
+			window.addEventListener("load", fitCanvas);
+			window.addEventListener("resize", fitCanvas);
+
+			setInterval(fitCanvas, 500);
+		})();
+	</script>
+
+
+</head>
+<body>
+<div class="runner-shell" style="--panel-width: 220px;">
+	<div class="runner-stage">
+		<div id="canvas-container"></div>
+	</div>
+	<aside class="runner-panel">
+		<div class="runner-panel-inner">
+			<p class="runner-label">controls</p>
+			<div class="runner-button-row">
+				<button id="clicker">new star war</button>
+				<button id="pauser" aria-label="Pause or play">⏸️</button>
+				<button id="restarter" aria-label="Restart crawl">🔄</button>
+			</div>
+			<button id="fullscreen">Fullscreen</button>
+		</div>
+	</aside>
+</div>
+</body>
+</html>

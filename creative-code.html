@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Creative Coding Archive | Raven Cruz</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Creative coding and generative art experiments by Raven Cruz." />
+		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+		<link rel="stylesheet" href="assets/css/portfolio.css" />
+	</head>
+	<body>
+		<header class="site-header">
+			<a class="site-name" href="index.html">Raven Cruz</a>
+			<button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+				<span>Menu</span>
+			</button>
+			<nav id="site-nav" aria-label="Primary navigation">
+				<a href="index.html">⬆️</a>
+				<a href="index.html#work">Work</a>
+				<a href="index.html#lab">Lab</a>
+				<a href="index.html#about">About</a>
+				<a class="resume-link" href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+			</nav>
+		</header>
+
+		<main id="top">
+			<section class="section creative-code-hero">
+				<p class="eyebrow">creative coding archive</p>
+				<h1>code as the paintbrush</h1>
+				<p class="hero-intro">A handful of experiments in generative art that uses various procedural generation techniques as the main creative mechanism. I'm endlessly amazed at how math and numbers can be bent and prettified to make really cool visuals (and more)!</p>
+				<div class="hero-actions">
+					<a class="button primary" href="#experiments">Explore experiments</a>
+					<a class="button" href="https://github.com/corvuscorae/creativecoding" target="_blank" rel="noreferrer">View source repository</a>
+				</div>
+			</section>
+
+			<section id="experiments" class="section creative-code-section">
+				<div class="section-heading">
+					<div>
+						<p class="eyebrow">experiments</p>
+					</div>
+					<p class="section-note">grammars, perlin, voronoi, and more</p>
+				</div>
+
+				<div class="creative-code-list">
+					<article id="grammar-crawler" class="creative-code-entry">
+						<div class="creative-code-entry-media creative-code-media-stars">
+							<img src="images/bgStars.png" />
+						</div>
+						<div class="creative-code-entry-copy">
+							<div class="project-meta">
+								<span>grammars</span>
+								<span>p5.js</span>
+							</div>
+							<h2>Grammars-based Star Wars Crawler</h2>
+							<p>This is a Star Wars opening crawl generator, complete with Glup Shittos, nostalgia farming, and random Dune references. The results are often silly, sometimes oddly compelling, and always Star Wars-y. This experiment builds off of Adam Smith's Glitch game, <a class="text-link" href="https://glitch.com/~bad-quests" target="_blank" rel="noreferrer">bad-quests</a>.</p>
+							<details class="creative-code-details">
+								<summary>Technical</summary>
+								<div class="creative-code-details-copy">
+									<p>For the text of the main body, this generator uses a template based on <i>A New Hope</i>'s opening crawl, and for the titles, it randomly chooses a template from an array of templates modeled after the nine films' titles.</p>
+									<p>The generator uses a <tt>replacer()</tt> function to randomly fill dynamic slots with words from a <tt>filler()</tt> bank. For static slots, the generator uses a <tt>setter()</tt> function with an additional map check so repeated names, factions, and pronouns stay consistent throughout a generated crawl.</p>
+									<p>Title generation uses the same core functions, then checks the word count and may prepend "THE" so the results better resemble the naming patterns of the films. The crawl animation itself uses p5.js transforms to tilt, translate, and raise the generated text.</p>
+								</div>
+							</details>
+							<details class="creative-code-details">
+								<summary>Reflection</summary>
+								<div class="creative-code-details-copy">
+									<p>This was my first time working with grammars, and for such a simple concept I found myself getting really excited about the potency of grammars-based generation. I'm happy with the variety of outputs, and I think that, due to the OOP-ness of the generator itself, it will be easy to expand the generator to further increase the variety of outputs.</p>
+									<p>One thing that irks me about the generator is that it can sometimes feel a bit too random. I'd prefer it if things like the galaxy's starting state and end state felt more related. A next iteration could use mappings or sub-keys to guide output more precisely, along with synonym handling for repeated static slots.</p>
+									<p>Lastly, I'd like to add a star field, film grain, and generative music to get this thing Star Wars-maxxed.</p>
+								</div>
+							</details>
+							<div class="card-actions creative-code-actions">
+								<button class="button primary creative-code-run-button" type="button" data-experiment-url="creative-code-runners/experiment1.html" data-experiment="experiment1">Run experiment</button>
+								<a class="text-link muted" href="https://github.com/corvuscorae/creativecoding/tree/master/experiment1" target="_blank" rel="noreferrer">View source</a>
+							</div>
+						</div>
+					</article>
+
+					<article id="wetlands" class="creative-code-entry creative-code-entry-reverse">
+						<div class="creative-code-entry-media">
+							<img src="images/creative-code-wetlands.png" />
+						</div>
+						<div class="creative-code-entry-copy">
+							<div class="project-meta">
+								<span>perlin noise</span>
+								<span>infinite scroll</span>
+							</div>
+							<h2>Wetlands through the Window</h2>
+							<p>Twice a week, I take the Capitol Corridor train to get between Sacramento and San Jose, and twice a week I watch raptly as we pass through Suisun marsh, a lovely stretch of landscape between Suisun and Martinez. It's a beautiful view no matter the weather, but I particularly love it when the water is like a mirror to the sky above. For this experiment, I wanted to try to capture this, my favorite part of a long commute, in procedural perpetuity with an infinite scroll.</p>
+							<details class="creative-code-details">
+								<summary>Technical</summary>
+								<div class="creative-code-details-copy">
+									<p>This experiment uses p5.js' native <tt>noise()</tt> functionality for marsh, sky, and hill generation. The marsh grass colors were approximated by eye and later refined with an inspired palette. The trees are rendered with triangle primitives. The hillside is a polygon generated using vertex calls with Perlin noise values, while the sky and marshlands are generated using Perlin noise and filled color regions.</p>
+									<p>The forced perspective effects on the sky and marsh are achieved by scaling their noise outputs along the y-axis. The marsh and hills infinitely scroll to emulate looking out a window on a train ride.</p>
+								</div>
+							</details>
+							<details class="creative-code-details">
+								<summary>Reflection</summary>
+								<div class="creative-code-details-copy">
+									<p>I'm very happy with how this turned out. I wanted to make something that felt like I was perpetually passing through my favorite part of my bi-weekly commute, and I achieved that. The style and texturizing I added toward the end made it look like something I might sit down and paint in Photoshop.</p>
+									<p>Although I've worked with noise generation before, I pushed the limits of my own understanding of the technique and applied it in different ways for the sky, hills, and marsh. One place the code still needs improvement is efficiency; the original version is slow to load and resizing is buggy.</p>
+								</div>
+							</details>
+							<div class="card-actions creative-code-actions">
+								<button class="button primary creative-code-run-button" type="button" data-experiment-url="creative-code-runners/experiment2.html" data-experiment="experiment2">Run experiment</button>
+								<a class="text-link muted" href="https://github.com/corvuscorae/creativecoding/tree/master/experiment2" target="_blank" rel="noreferrer">View source</a>
+							</div>
+						</div>
+					</article>
+
+					<article id="world-generator" class="creative-code-entry">
+						<div class="creative-code-entry-media">
+							<img src="images/creative-code-dungeon.jpg" />
+						</div>
+						<div class="creative-code-entry-copy">
+							<div class="project-meta">
+								<span>world generation</span>
+								<span>BSP + Perlin noise</span>
+							</div>
+							<h2>Dungeon + Overworld Generator</h2>
+							<p>Two procedural world-generation approaches in one experiment: binary space partitioning for dungeons and Perlin noise for an overworld, rendered with a compact pixel tileset.</p>
+							<details class="creative-code-details">
+								<summary>Technical</summary>
+								<div class="creative-code-details-copy">
+									<p>Dungeons: binary space partitioning. Overworld: Perlin noise.</p>
+								</div>
+							</details>
+							<details class="creative-code-details">
+								<summary>Reflection</summary>
+								<div class="creative-code-details-copy">
+									<p>In the future, I'd like to add decor items using lazy flood fill generated biomes in the overworld, and I'd like to make the dungeons more interesting. I am happy with the data structure that I used to control each world's generation, though, and I think it will make future iterations simpler.</p>
+								</div>
+							</details>
+							<div class="card-actions creative-code-actions">
+								<button class="button primary creative-code-run-button" type="button" data-experiment-url="creative-code-runners/experiment3.html" data-experiment="experiment3">Run experiment</button>
+								<a class="text-link muted" href="https://github.com/corvuscorae/creativecoding/tree/master/experiment3" target="_blank" rel="noreferrer">View source</a>
+							</div>
+						</div>
+					</article>
+
+					<article id="coral-world" class="creative-code-entry creative-code-entry-reverse">
+						<div class="creative-code-entry-media">
+							<img src="images/creative-code-ocean.png" />
+						</div>
+						<div class="creative-code-entry-copy">
+							<div class="project-meta">
+								<span>infinite worlds</span>
+								<span>collaboration</span>
+							</div>
+							<h2>Coral Reef Infinite World</h2>
+							<p>Partner coded with Jackie Sanchez. We set out to make a sketch inspired by a coral reef and ocean floor.</p>
+							<details class="creative-code-details">
+								<summary>Technical</summary>
+								<div class="creative-code-details-copy">
+									<p>We use noise based on x- and y-positions along with <tt>frameCount</tt> as a third dimension to give an idle wavey animation.</p>
+								</div>
+							</details>
+							<div class="card-actions creative-code-actions">
+								<button class="button primary creative-code-run-button" type="button" data-experiment-url="creative-code-runners/experiment4a.html" data-experiment="experiment4a">Run experiment</button>
+								<a class="text-link muted" href="https://github.com/corvuscorae/creativecoding/tree/master/experiment4a" target="_blank" rel="noreferrer">View source</a>
+							</div>
+						</div>
+					</article>
+
+					<article id="voronoi" class="creative-code-entry">
+						<div class="creative-code-entry-media">
+							<img src="images/creative-code-web.jpg" />
+						</div>
+						<div class="creative-code-entry-copy">
+							<div class="project-meta">
+								<span>Voronoi</span>
+								<span>d3-delaunay</span>
+							</div>
+							<h2>Generative Voronoi</h2>
+							<p>I wanted to figure out how to generate a Voronoi diagram, so I started with that in mind and adjusted my photo inspiration to come from the results of my experimentation.</p>
+							<details class="creative-code-details">
+								<summary>Technical</summary>
+								<div class="creative-code-details-copy">
+									<p>I used d3-delaunay to generate a Voronoi diagram, then did some minor Lloyd relaxation to normalize the polygons. To add polygons on scroll, click, or drag, I add to a global points array and regenerate the polygons with the updated array.</p>
+								</div>
+							</details>
+							<div class="card-actions creative-code-actions">
+								<button class="button primary creative-code-run-button" type="button" data-experiment-url="creative-code-runners/experiment4b.html" data-experiment="experiment4b">Run experiment</button>
+								<a class="text-link muted" href="https://github.com/corvuscorae/creativecoding/tree/master/experiment4b" target="_blank" rel="noreferrer">View source</a>
+							</div>
+						</div>
+					</article>
+
+					<article id="interactive-wetlands" class="creative-code-entry creative-code-entry-reverse">
+						<div class="creative-code-entry-media creative-code-media-wetlands-shift">
+							<img src="images/creative-code-wetlands.png" />
+						</div>
+						<div class="creative-code-entry-copy">
+							<div class="project-meta">
+								<span>interaction</span>
+								<span>noise controls</span>
+							</div>
+							<h2>Interactive Wetlands</h2>
+							<p>For this one, I wanted to add more user interaction to my scrolling wetlands project.</p>
+							<details class="creative-code-details">
+								<summary>Technical</summary>
+								<div class="creative-code-details-copy">
+									<p>The user can change the scroll direction using the left and right arrows and update noise settings using sliders.</p>
+									<p>There's also time-based color lerping on an overlay from a warm tone to a cool tone, giving an impression of time passing and the quality of light changing.</p>
+								</div>
+							</details>
+							<div class="card-actions creative-code-actions">
+								<button class="button primary creative-code-run-button" type="button" data-experiment-url="creative-code-runners/experiment4c.html" data-experiment="experiment4c">Run experiment</button>
+								<a class="text-link muted" href="https://github.com/corvuscorae/creativecoding/tree/master/experiment4c" target="_blank" rel="noreferrer">View source</a>
+							</div>
+						</div>
+					</article>
+
+					<article id="evolutionary-impressions" class="creative-code-entry creative-code-entry-featured">
+						<div class="creative-code-entry-media">
+							<img src="images/creative-code-jupiter.jpg"/>
+						</div>
+						<div class="creative-code-entry-copy">
+							<div class="project-meta">
+								<span>evolutionary art</span>
+								<span>collaboration</span>
+							</div>
+							<h2>Evolutionary Impressions</h2>
+							<p>Partner coded with Jackie Sanchez. This experiment explores image-based evolution using p5.js. Starting from an inspiration image, the program samples average colors in random regions and draws basic shapes, rectangles and ellipses, to slowly recreate the image through generative mutation. We collaborated on the initial framework, which included capturing average color from localized regions, then expanded the system to support more shapes and increased their number to improve coverage.</p>
+							<details class="creative-code-details">
+								<summary>Technical</summary>
+								<div class="creative-code-details-copy">
+									<p>To keep color accuracy over time, the program re-samples colors every roughly 20 frames, avoiding performance hits while preventing drift. I also implemented an adaptive mutation rate that mimics the manual slider adjustments I was making: it starts slow, spikes briefly, then eases back, automated through counters and conditionals based on scoring performance.</p>
+									<p>Toward the end, I started noticing gaps in the final compositions, areas the shapes weren't reaching. Doubling the shapes helped, tripling helped more, but a true fix would require a preprocessing pass to identify large structural regions in the source image, like Jupiter's bands or an aurora.</p>
+								</div>
+							</details>
+							<details class="creative-code-details">
+								<summary>Reflection</summary>
+								<div class="creative-code-details-copy">
+									<p>Overall, I'm happy with the results. The system produces visually interesting approximations, and the code is modular enough to iterate on. It's been a fun dive into mutation-based aesthetics, and there's plenty of room to evolve it further.</p>
+								</div>
+							</details>
+							<div class="card-actions creative-code-actions">
+								<button class="button primary creative-code-run-button" type="button" data-experiment-url="creative-code-runners/experiment5.html" data-experiment="experiment5">Run experiment</button>
+								<a class="text-link muted" href="https://github.com/corvuscorae/creativecoding/tree/master/experiment5" target="_blank" rel="noreferrer">View source</a>
+							</div>
+						</div>
+					</article>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<p>Raven Cruz</p>
+			<a href="index.html#lab">Return to the lab</a>
+		</footer>
+
+
+		<dialog id="creative-code-runner-dialog" class="creative-code-runner-dialog">
+			<button class="creative-code-runner-close" type="button" aria-label="Close experiment">Close</button>
+			<div class="creative-code-runner-stage">
+				<iframe
+					id="creative-code-runner-frame"
+					class="creative-code-runner-frame"
+					src="about:blank"
+					allowfullscreen
+					title="Creative coding experiment"
+				></iframe>
+			</div>
+		</dialog>
+
+		<script src="assets/js/portfolio.js"></script>
+	</body>
+</html>

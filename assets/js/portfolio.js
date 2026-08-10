@@ -418,68 +418,36 @@ if (hero && heroCanvas) {
 	window.requestAnimationFrame(animate);
 }
 
+const creativeCodeRunnerDialog = document.querySelector("#creative-code-runner-dialog");
+const creativeCodeRunnerFrame = document.querySelector("#creative-code-runner-frame");
+const creativeCodeRunnerClose = document.querySelector(".creative-code-runner-close");
+const creativeCodeRunButtons = document.querySelectorAll(".creative-code-run-button");
 
-// art gallery page
+creativeCodeRunButtons.forEach((button) => {
+	button.addEventListener("click", () => {
+		if (!creativeCodeRunnerDialog || !creativeCodeRunnerFrame) {
+			return;
+		}
 
-const artGalleryItems = Array.from(document.querySelectorAll(".archive-gallery-item"));
-const artLightbox = document.querySelector("#art-lightbox");
-const artLightboxImage = artLightbox?.querySelector(".art-lightbox-image");
-const artLightboxTitle = artLightbox?.querySelector(".art-lightbox-title");
-const artLightboxClose = artLightbox?.querySelector(".art-lightbox-close");
-const artLightboxPrevious = artLightbox?.querySelector(".art-lightbox-previous");
-const artLightboxNext = artLightbox?.querySelector(".art-lightbox-next");
-
-let currentArtIndex = 0;
-
-const showArtImage = (index) => {
-	if (!artLightbox || !artLightboxImage || artGalleryItems.length === 0) {
-		return;
-	}
-
-	currentArtIndex = (index + artGalleryItems.length) % artGalleryItems.length;
-
-	const item = artGalleryItems[currentArtIndex];
-	const thumbnail = item.querySelector("img");
-
-	artLightboxImage.src = item.dataset.full || thumbnail.src;
-	artLightboxImage.alt = thumbnail.alt;
-
-	if (artLightboxTitle) {
-		artLightboxTitle.textContent = item.dataset.title || "";
-	}
-};
-
-artGalleryItems.forEach((item, index) => {
-	item.addEventListener("click", () => {
-		showArtImage(index);
-		artLightbox.showModal();
+		creativeCodeRunnerFrame.src = button.dataset.experimentUrl;
+		creativeCodeRunnerFrame.title = `${button.closest(".creative-code-entry")?.querySelector("h2")?.textContent || "Creative coding"} experiment`;
+		creativeCodeRunnerDialog.showModal();
 	});
 });
 
-artLightboxClose?.addEventListener("click", () => {
-	artLightbox.close();
+creativeCodeRunnerClose?.addEventListener("click", () => {
+	creativeCodeRunnerDialog?.close();
 });
 
-artLightboxPrevious?.addEventListener("click", () => {
-	showArtImage(currentArtIndex - 1);
-});
-
-artLightboxNext?.addEventListener("click", () => {
-	showArtImage(currentArtIndex + 1);
-});
-
-artLightbox?.addEventListener("click", (event) => {
-	if (event.target === artLightbox) {
-		artLightbox.close();
+creativeCodeRunnerDialog?.addEventListener("click", (event) => {
+	if (event.target === creativeCodeRunnerDialog) {
+		creativeCodeRunnerDialog.close();
 	}
 });
 
-artLightbox?.addEventListener("keydown", (event) => {
-	if (event.key === "ArrowLeft") {
-		showArtImage(currentArtIndex - 1);
-	}
-
-	if (event.key === "ArrowRight") {
-		showArtImage(currentArtIndex + 1);
+creativeCodeRunnerDialog?.addEventListener("close", () => {
+	if (creativeCodeRunnerFrame) {
+		creativeCodeRunnerFrame.src = "about:blank";
 	}
 });
+
